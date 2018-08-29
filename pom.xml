@@ -4,6 +4,31 @@
   <artifactId>TestNgPoC</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <profiles>
+		<profile>
+			<id>RegressionSuite</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+
+
+							<version>2.21.0</version>
+							<configuration>
+								<suiteXmlFiles>
+									<suiteXmlFile>testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+  
   
   <dependencies>
 
@@ -47,17 +72,9 @@
 			<version>2.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>db2jcc.db2jcc_license_cu</groupId>
-			<artifactId>db2jcc_license_cu</artifactId>
-			<version>1.0</version>
-		</dependency>
+		
 
-		<dependency>
-			<groupId>db2jcc.db2jcc_license_cisuz</groupId>
-			<artifactId>db2jcc_license_cisuz</artifactId>
-			<version>1.0</version>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
