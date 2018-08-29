@@ -28,7 +28,7 @@ public class Login {
   }
   @BeforeTest
   public void beforeTest() {
-	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\C49563\\chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	 driver = new ChromeDriver();
 	 driver.manage().window().maximize();
 	 
