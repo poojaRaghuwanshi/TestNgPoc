@@ -19,16 +19,40 @@ public class Login {
   @Test(priority=0)
   public void Login() throws IOException, InterruptedException {
 	  driver.get("http://vm00001255.nl.eu.abnamro.com:14053/sta/action/pleaseLogonFirst");
-	  Runtime.getRuntime().exec("C:\\Users\\C49563\\Qmtery\\ChromeLogin1.exe");
+	  //Runtime.getRuntime().exec("C:\\Users\\C49563\\Qmtery\\ChromeLogin1.exe");
 	  driver.findElement(By.xpath("(//table/tbody/tr[2]/td[2]/table/tbody/tr/td/a[text()='Intranet logon'])[1]")).click();    
 	  //Thread.sleep(2000);
-		        
+		 Robot rb = new Robot();
+	    StringSelection username = new StringSelection("pibranches\\S04072");
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(username, null);            
+	    rb.keyPress(KeyEvent.VK_CONTROL);
+	    rb.keyPress(KeyEvent.VK_V);
+	    rb.keyRelease(KeyEvent.VK_V);
+	    rb.keyRelease(KeyEvent.VK_CONTROL);
+
+	// press tab to move to password field
+	   rb.keyPress(KeyEvent.VK_TAB);
+	   rb.keyRelease(KeyEvent.VK_TAB);
+	   Thread.sleep(2000);
+
+	//Enter password in password field
+	   StringSelection pwd = new StringSelection("testen#1");
+	   Toolkit.getDefaultToolkit().getSystemClipboard().setContents(pwd, null);
+	   rb.keyPress(KeyEvent.VK_CONTROL);
+	   rb.keyPress(KeyEvent.VK_V);
+	   rb.keyRelease(KeyEvent.VK_V);
+	   rb.keyRelease(KeyEvent.VK_CONTROL);
+
+	//press enter
+	rb.keyPress(KeyEvent.VK_ENTER);
+	rb.keyRelease(KeyEvent.VK_ENTER);       
+	 // Thread.sleep(20000);        
 	  Thread.sleep(20000);
       driver.get("http://vm00005800.nl.eu.abnamro.com:14874/nl/cnicwidgetdelivery/cnicwidget/index.html#/overview");
   }
   @BeforeTest
   public void beforeTest() {
-	  System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+	  System.setProperty("webdriver.chrome.driver", "chromedriver");
 	 driver = new ChromeDriver();
 	 driver.manage().window().maximize();
 	 
